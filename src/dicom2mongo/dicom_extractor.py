@@ -1,11 +1,11 @@
 import pydicom
 
-from typing import TypedDict
+from typing import TypedDict, List
 def DicomTagDict(TypedDict):
     TAGS:str
 
 class DicomExtractor:
-    def __init__(self, tags: list[DicomTagDict]):
+    def __init__(self, tags: List[DicomTagDict]):
         self.tags = {t['TAGS'] for t in tags}
         self.tags = {*self.tags,*{
             #File Information: These tags provide information about the file itself.
