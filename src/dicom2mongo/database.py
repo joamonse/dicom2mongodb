@@ -1,4 +1,5 @@
 import pymongo
+from typing import List
 
 class Database:
     def __init__(self, url: str, port: int, db_name: str):
@@ -11,6 +12,6 @@ class Database:
         collection.insert_one(data)
 
 
-    def get_tags_list(self, collection_name: str) -> list[dict]:
+    def get_tags_list(self, collection_name: str) -> List[dict]:
         collection = self.db[collection_name]
         return collection.find()
